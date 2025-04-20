@@ -3,6 +3,13 @@ import pandas as pd
 import joblib
 import numpy as np
 
+# Hide the default Streamlit footer
+st.markdown("""
+    <style>
+        .css-1d391kg {display: none;}
+    </style>
+""", unsafe_allow_html=True)
+
 # Load model and scaler
 knn = joblib.load('knn_model.pkl')
 scaler = joblib.load('scaler.pkl')
@@ -52,8 +59,6 @@ if st.button("Recommend Songs 🎧"):
         name = df.iloc[idx]['name']
         artist = df.iloc[idx]['artists']
         st.write(f"**{name}** by *{artist}*")
-
-
 
 # Footer
 st.markdown(
